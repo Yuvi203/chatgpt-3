@@ -1,67 +1,22 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-const Title = ({title, span}) => {
+const Title = ({name, para}) => {
   return (
     <Container>
-        <h2>{title} <b><span>{span}</span></b></h2>
+        <h3>{name}</h3>
+        <p>{para}</p>
     </Container>
   )
 }
 
-export default Title
+export default Title;
 const Container = styled.div`
-position:relative;
-h2{
-    color:var(--white-color);
-    font-size:3.1rem;
-    font-weight:600;
-    text-transform:uppercase;
-    position:relative;
-    padding-bottom:.7rem;
-    @media screen and (max-width: 496px){
-        font-size: 2.8rem;
+    h3{
+        color:var(--color-dark);
+        font-size:2.2rem;
     }
-    @media screen and (max-width: 370px){
-        font-size: 2rem;
+    p{
+        padding:1rem 0;
     }
-    ::before{
-        content:'';
-        position:absolute;
-        bottom: 0;
-        width: 7.4rem;
-        height:.33rem;
-        background-color:var(--background-light-color-2);
-        border-radius:15px;
-        left: 0;
-    }
-    ::after{
-        content:'';
-        position:absolute;
-        bottom:0;
-        width:3.5rem;
-        height:.33rem;
-        background-color:var(--primary-color);
-        left: 0;
-    }
-    span{
-        font-weight:900;
-        color: rgba(25,29,43,.44);
-        font-size:5rem;
-        position:absolute;
-        left: 0;
-        top: 30%;
-        z-index:-1;
-        @media screen and (max-width: 620px){
-        font-size: 4rem;
-    }
-    @media screen and (max-width: 496px){
-        font-size: 3rem;
-    }
-    @media screen and (max-width: 370px){
-        font-size: 2rem;
-    }
-    }
-
-}
-`
+`;
