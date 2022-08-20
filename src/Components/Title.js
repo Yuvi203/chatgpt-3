@@ -1,22 +1,21 @@
 import React from 'react'
-import styled from 'styled-components';
-
-const Title = ({name, para}) => {
+import { useTheme } from '../context/themeContext';
+import styled from 'styled-components'
+const Title = ({name, subtext}) => {
+    const theme = useTheme();
   return (
-    <Container>
+    <Container theme={theme}>
         <h3>{name}</h3>
-        <p>{para}</p>
+        <p>{subtext}</p>
     </Container>
   )
 }
 
-export default Title;
+export default Title
 const Container = styled.div`
     h3{
-        color:var(--color-dark);
-        font-size:2.2rem;
-    }
-    p{
-        padding:1rem 0;
+        font-size:2.5rem;
+        font-weight:700;
+        color:white;
     }
 `;

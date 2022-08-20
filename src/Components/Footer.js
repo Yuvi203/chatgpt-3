@@ -1,160 +1,216 @@
 import React from 'react'
-import styled from 'styled-components';
-import { InnerLayout } from '../Layout';
-import logo from '../img/logo1.svg';
+import styled from 'styled-components'
+import { useTheme } from '../context/themeContext';
+
+import team1 from '../img/team1.jpg'
+import team2 from '../img/team2.jpg'
+import css3 from '../img/css.png'
+import agency4 from '../img/agency4.jpg'
+import figma from '../img/figma.jpg'
+import fitness from '../img/fitness.png'
 
 const Footer = () => {
+    const theme = useTheme()
   return (
-    <Container>
-        <InnerLayout>
-           <div className='f-inner'>
-            <ul>
-                <div className='f-title-logo'>
-                   <img src={logo} alt=''/>
-                   <h4>JobsFndr</h4>
+    <Container theme={theme}>
+        <nav className='nav'>
+            <ul className='logo-con'>
+                <div className='logo'>
+                  <h1>LOGO</h1>
                 </div>
-                <p className='f-text'>
-                Lorem ipsum dolor sit,<br />
-                met consectetur <br />adipisicing elit
+                <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                 Aperiam unde minima illum minus?
                 </p>
+                <div className='nav-icons'>
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-linkedin"></i>
+                <i class="fab fa-github"></i>
+                <i class="fab fa-youtube"></i>
+                </div>
             </ul>
-            <ul>
-                <h4 className='f-title'>Organization</h4>
+            <ul className='nav-b nav-contact'>
+                <h4>Contact Us</h4>
+                <li className='nav-item'>
+                    <div className='icon'>
+                    <i className="fas fa-envelope"></i>
+                    </div>
+                    <div className='f-text'>
+                        <h6>Email</h6>
+                        <span>yyuvistudent@gmail.com</span>
+                    </div>
+                </li>
                 <li className="nav-item">
-                            <a href="#">About Us</a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="#">News</a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="#">New App</a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="#">Email Us</a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="#">Our Partners</a>
-                        </li>
-                </ul>
-                <ul>
-                        <h4 className="f-title">Marketing</h4>
-                        <li className="nav-item">
-                            <a href="#">Affiliate</a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="#">Blogs / News</a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="#">New App</a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="#">Platforms</a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="#">Find Us</a>
-                        </li>
-                    </ul>
-                <ul>
-                        <h4 className="f-title">Our Products</h4>
-                        <li className="nav-item">
-                            <a href="#">Job Finder</a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="#">Notes App</a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="#">Features</a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="#">Pricing</a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="#">Contact</a>
-                        </li>
-                    </ul>
+                        <div className="icon">
+                            <i className="fas fa-phone-alt"></i>
+                        </div>
+                        <div className="f-text">
+                            <h6>Phone</h6>
+                            <span> +44 (0) 745-878-908</span>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div className="icon">
+                            <i className="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div className="f-text">
+                            <h6>Location</h6>
+                            <span>
+                                London, United Kingdom
+                            </span>
+                        </div>
+                    </li>
+            </ul>
+            <ul className='nav-b company'>
+                <h4>Company</h4>
+                <li className='nav-item'>
+                    <a href='#'>Contact</a>
+                </li>
+                <li className="nav-item">
+                   <a href="#">Customer's FAQ</a>
+                </li>
+                <li className="nav-item">
+                   <a href="#">Services</a>
+                </li>
+                <li className="nav-item">
+                   <a href="#">Refund Policy</a>
+                </li>
+                <li className="nav-item">
+                  <a href="#">Private Policy</a>
+                </li>
+                <li className="nav-item">
+                  <a href="#">License & Copyright</a>
+                </li>
+            </ul>
+            <ul className='nav-b ig'>
+                <h4>Instagram</h4>
+                <div className='ig-images'>
+                <img src={team1} alt="" />
+                <img src={team2} alt="" />
+                <img src={css3} alt="" />
+                <img src={agency4} alt="" />
+                <img src={figma} alt="" />
+                 <img src={fitness} alt="" />
+                </div>
 
-           </div>
-        </InnerLayout>
-        <p className='footer'>
-        © 2022 <span>JobsFndr</span> Inc. All Rights Reserved.
-        </p>
+            </ul>
+
+        </nav>
+        <div className="footer-copywrite">
+            <p>
+               Copyright © 2022 <span>MacLinz Universal</span>. All rights reserved.
+             </p>
+        </div>
+
     </Container>
   )
 }
 
 export default Footer
 const Container = styled.div`
-    background-color:#272A33;
-    p{
-        color:#d8dadf;
-        line-height:1.9rem;
+    background-color:${props => props.theme.colorBg3};
+    padding-top:6rem;
+    color:${props => props.theme.colorFont};
+    padding-bottom:3rem;
+    padding:5rem 0;
+    h6{
+       font-size:1.2rem; 
     }
-    .f-inner{
+    h4{
+        font-size:1.5rem;
+        color:${props => props.theme.colorGrey4};
+    }
+    a{
+        color:${props => props.theme.colorFont};
+        transition:all .3s ease-in-out;
+        :hover{
+            color:${props => props.theme.colorAccent};
+        }
+    }
+    i{
+        font-size:1.3rem;
+        transition:all .3s ease-in-out;
+        :hover{
+            color:${props => props.theme.colorAccent};
+        }
+    }
+    h1{
+        color:${props => props.theme.colorWhite};
+        margin-bottom:1rem;
+    }
+    .nav{
         display:grid;
         grid-template-columns:repeat(4, 1fr);
-        @media screen and (max-width:1242px) {
-          grid-template-columns:repeat(3, 1fr);
+        grid-gap:2rem;
+        padding-bottom:3rem;
+        h4{
+            padding-bottom:1.5rem;
         }
-        @media screen and (max-width:841px) {
-          grid-template-columns:repeat(2, 1fr);
+        .nav-b{
+            margin:0 1.5rem;
+            .nav-item{
+                margin-bottom:1rem;
+            }
         }
-        @media screen and (max-width:530px) {
-          grid-template-columns:repeat(1, 1fr);
-          flex-direction:column;
-          display:flex;
-          align-items:center;
-          justify-content:center;
+        .nav-contact{
+            .nav-item{
+                display:grid;
+                grid-template-columns:30px auto;
+            }
         }
-        p{
-        color:#d8dadf;
-        line-height:1.9rem;
-    }
-
-        .f-title-logo{
+        .logo-con{
+           // flex:1;
+            padding-left:2rem;
+            p{
+                //width:75%;
+                margin:0;
+            }
+        }
+        .nav-icons{
             display:flex;
-            img{
-                width: 50px;
-                margin-top:-13px;
+            margin-top:2rem;
+            .fa-facebook{
+                margin-right:.3rem;
             }
-            h4{
-                margin-left:16px;
-                text-align:center;
-            }
+           i:not(:first-child){
+            margin:0 .5rem;
+            cursor:pointer;
+           }
         }
-        .f-title{
-            padding-bottom:2rem;
-            font-size:1.8rem;
-            cursor:default;
-        }
-        li{
-            margin:1rem 0;
+        .company{
             a{
-                transition:all .3s ease-in-out;
-                color: #d8dadf;
-                font-size: 1.1rem;
-                :hover{
-                    color:var(--color-primary);
+                color:${props => props.theme.colorWhite};
+                font-size:1.1rem;
+                font-weight:400;
+            }
+        }
+        .ig{
+            .ig-images{
+                display:grid;
+                grid-template-columns:repeat(3, 90px);
+                grid-template-rows:repeat(2, 90px);
+                grid-gap:.5rem;
+                img{
+                    width: 100%;
+                    object-fit:cover;
+                    height: 100%;
+                    cursor: pointer;
                 }
             }
-
         }
-        
     }
-    .footer{
-        width: 70%;
-        margin:0 auto;
+    .footer-copywrite{
+        padding-top:3rem;
+        border-top:1px solid ${props => props.theme.colorGrey9};
         text-align:center;
-        padding:2rem 0;
-        color: #d8dadf;
-        border-top: 1px solid #cccccc1c ;
         span{
-            color:var(--color-primary);
+            color:${props => props.theme.colorGrey4};
+            cursor:pointer;
+            transition: all .4s ease-in-out;
+            :hover{
+                color:${props => props.theme.colorAccent};
+            }
         }
-    }
-    .f-text{
-        padding:1rem;
-        text-align:center;
-        margin-right:2rem;
-        width: 60%;
     }
 `;
