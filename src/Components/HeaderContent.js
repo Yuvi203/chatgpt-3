@@ -7,6 +7,7 @@ import message2 from '../img/message_blue.svg';
 import Button2 from './Button2';
 import {Fade} from 'react-reveal'
 
+
 const HeaderContent = () => {
   return (
     <Container>
