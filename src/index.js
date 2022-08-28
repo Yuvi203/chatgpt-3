@@ -1,19 +1,13 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import App from './App';
-import GlobalStyle from './GlobalStyle';
-import {ThemeProvider} from "./context/themeContext"
+import GlobalStyle from './GlobalStyle'
 
-const container = document.getElementById('root');
-const root = createRoot(container);
-
-root.render(
-        <>
-        <GlobalStyle/>
-        <ThemeProvider>
-        <App/>
-        </ThemeProvider>
-        </>
+ReactDOM.render(
+  <React.StrictMode>
+    <GlobalStyle/>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
 );
-
 
