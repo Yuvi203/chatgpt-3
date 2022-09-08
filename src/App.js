@@ -1,38 +1,25 @@
-import React from 'react'
-import CardSection from './Components/CardSection'
-import ChartSection from './Components/ChartSection'
-import FAQSection from './Components/FAQSection'
-import FooterSection from './Components/FooterSection'
-import Header from './Components/Header'
-import MessagingSection from './Components/MessagingSection'
-import PaymentSection from './Components/PaymentSection'
-import {OuterLayout} from './Layout'
-import {Fade} from 'react-reveal'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import CartContainer from './components/CartContainer'
+import Navbar from './components/Navbar'
+import { calculate } from './features/cartSlice'
+import Modal from './components/Modal'
 
 const App = () => {
+  const {cartItems} = useSelector((store)=> store.cart)
+  const dispatch = useDispatch()
+  const {isOpen} = useSelector((state) => state.modal)
+  useEffect(()=>{
+    dispatch(
+      calculate()
+    );
+  }, [cartItems]);
+  
   return (
     <div>
-      <Header/>
-        <main>
-          <Fade left>
-          <CardSection/>
-          </Fade>
-          <Fade right>
-          <ChartSection/>
-          </Fade>
-          <Fade left>
-          <MessagingSection/>
-          </Fade>
-          <Fade right>
-          <PaymentSection/>
-          </Fade>
-          <Fade left>
-          <FAQSection/>
-          </Fade>
-        </main>
-      <Fade bottom>
-      <FooterSection/>
-      </Fade>
+      {isOpen && <Modal/>}
+      <Navbar/>
+      <CartContainer/>
     </div>
   )
 }
