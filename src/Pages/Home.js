@@ -9,7 +9,6 @@ const Home = () => {
          <WhatGPT3/>
      <Possibility/>
      <CTA/>
-     <Otherdesign/>
      <Footer/>
     </div>
   )

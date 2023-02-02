@@ -8,14 +8,20 @@ const GenerateImage = () => {
   const [loading, setLoading] = useState(false);
 
   const generateImage = async () =>{
-    setLoading(true);
-    const res = await openai.createImage({
-      prompt: prompt,
-      n: 1,
-      size: "512x512",
-    });
-    setLoading(false);
-    setResult(res.data.data[0].url);
+    try{
+      setLoading(true);
+      const res = await openai.createImage({
+        prompt: prompt,
+        n: 1,
+        size: "512x512",
+      });
+      setLoading(false);
+      setResult(res.data.data[0].url);
+    }
+    catch(e){
+    alert("something went wrong", e)
+    }
+   
   }
 
   const download = async () =>{
@@ -45,10 +51,10 @@ const GenerateImage = () => {
         </>
       ) :(
         <>
-        <h1 className="gradient__text">Generate Image using ai</h1>
+        <h1 className="gradient__text">Generate Image using dall-e ai</h1>
          <div className='input-cont'>
        <input
-           placeholder='Ai image generator'
+           placeholder='eg draw Mona Lisa eating apple'
             onChange={(e) => setPrompt(e.target.value)}
           />
        </div>

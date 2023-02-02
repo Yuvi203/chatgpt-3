@@ -7,16 +7,17 @@ import Logo from './Logo';
 import {useAuthState} from 'react-firebase-hooks/auth'
 import { auth } from './firebase';
 import styled from 'styled-components';
+import Register from './pages/Register';
 
 const Homepage = lazy(()=> import("./pages/Home"))
 const Featurespage = lazy(()=> import("./pages/Items"))
 const Aipage = lazy(()=> import("./pages/Ai"))
 const ExplainCodepage = lazy(()=> import("./pages/ExplainCode"))
-const FriendChatpage = lazy(()=> import("./pages/FriendChat"))
+const TranslateProgrammingpage = lazy(()=> import("./pages/TranslatePrograme"))
 const GenerateImagepage = lazy(()=> import("./pages/GenerateImage"))
-const GrammerCorrectionpage = lazy(()=> import("./pages/GrammerCorrection"))
-const TranslateProgrammingpage = lazy(()=> import("./pages/TranslateProgramming"))
-const Languagepage = lazy(()=> import("./pages/Language"))
+const BugFixerpage= lazy(()=> import("./pages/BugFixer"))
+const GenerateCodepage = lazy(()=> import("./pages/GenerateCode"))
+const CreateNotespage = lazy(()=> import("./pages/CreateNotes"))
 const QApage = lazy(()=> import("./pages/QA"))
 
 const App = () =>{
@@ -25,7 +26,10 @@ const App = () =>{
   <div className="App">
     <div className="gradient__bg">
     {!user ? <>
-    <Header/>
+    <Routes>
+      <Route path='/' element={<Header/>}/>
+      <Route path='/login' element={<div className='bg'><Register/></div>}/>
+    </Routes>
     </> : (
   <>
   <Suspense fallback={<Div className='bg'>
@@ -33,7 +37,7 @@ const App = () =>{
         <div className="lds-ripple">
             <div></div>
             <div></div>
-          </div>
+          </div>l
   </Div>}>
   <Routes>
         <Route path='/' element={<Homepage/>}/>
@@ -41,12 +45,12 @@ const App = () =>{
         <Route path='/features/Aichat' element={<div className='bg'><Aipage/></div>}/>
         <Route path='/features/Dalle' element={<div className='bg'><GenerateImagepage/></div>}/>
         <Route path='/features/QandA' element={<div className='bg'><QApage/></div>}/>
-        <Route path='/features/grammercorrection' element={<div className='bg'><GrammerCorrectionpage/></div>}/>
-        <Route path='/features/Englishtoother' element={<div className='bg'><Languagepage/></div>}/>
+        <Route path='/features/bugfixer' element={<div className='bg'><BugFixerpage/></div>}/>
+        <Route path='/features/studynotes' element={<div className='bg'><CreateNotespage/></div>}/>
         <Route path='/features/explaincode' element={<div className='bg'><ExplainCodepage/></div>}/>
-        <Route path='/features/Translateprogramming' element={<div className='bg'><TranslateProgrammingpage/></div>}/>
-        <Route path='/features/friendchat' element={<div className='bg'><FriendChatpage/></div>}/>
-    </Routes>
+        <Route path='/features/generatecode' element={<div className='bg'><GenerateCodepage/></div>}/>
+        <Route path='/features/Translateprgramminglanguages' element={<div className='bg'><TranslateProgrammingpage/></div>}/>
+    </Routes> 
     </Suspense>
   </>
 )}

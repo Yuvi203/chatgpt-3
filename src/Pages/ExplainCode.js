@@ -6,9 +6,11 @@ const ExplainCode = () => {
   const [input, setInput] = useState("")
   const[res, setRes] = useState('')
   const [isLoading, setIsLoading] = useState(false);
- 
+  const [show, setShow] = useState(false)
+
   const handleSubmit = async () =>{
     setIsLoading(true)
+    setShow(true)
     const response = await openai.createCompletion({
       model: "code-davinci-002",
       prompt:input,
@@ -26,21 +28,25 @@ const ExplainCode = () => {
 
   return (
     <Container>
+      
        <h1 className="gradient__text">Explain code with a help of ai</h1>
             <div className='text-con'>
         <textarea value={input} rows={"10"} cols="40" onChange={(e)=>{
           setInput(e.target.value)
-        }}/>
+        }} placeholder="Put your code here  "/>
        </div>
        <button className='but' onClick={handleSubmit}>{isLoading ? "Generating..." :"Do you stuff"}</button>
-        <div className='response'>
-        <div className='bot-response'>
-        <div className='gradient__text'>
-        <p>{res}</p>
-        </div>
-        </div>
-      </div>
-
+       {show ?
+       <div className='response'>
+       <div className='bot-response'>
+       <div className='gradient__text'>
+       <p>{res}</p>
+       </div>
+       </div>
+     </div>
+     : null
+       }
+        
     </Container>
   )
 }
@@ -54,20 +60,4 @@ const Container = styled.div`
   position:relative;
   justify-content:center;
   padding:2rem;
-  .text-con{
-    margin: 2rem 0 1rem;
-    display: flex;
-    flex-direction: row;
-    textarea{
-      font-family: var(--font-family);
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 28px;
-    background: var(--color-footer);
-    border: 2px solid var(--color-footer);
-    padding: 0 1rem;
-    outline: none;
-    color: #fff;
-    }
-  }
 `

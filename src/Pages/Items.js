@@ -7,6 +7,10 @@ import { Article } from '../components'
 import {blog01,blog02, blog03, blog04,blog05} from "../containers/blog/imports"
 import { auth } from '../firebase'
 import {Fade} from "react-reveal"
+import dalle from "../assets/dalle-2.jpg"
+import QnA from "../assets/QnA.jpg"
+import ai from "../assets/ai4.jpg"
+import code from "../assets/ai7.jpg"
 
 const Items = () => {
   const picUrl = auth.currentUser.photoURL
@@ -36,34 +40,34 @@ const SignOut = async () =>{
       <div className='box-pos'>
         <Fade left>
         <Link to={"/features/Aichat"}>
-        <Article imgUrl={blog04} text="AI assitance"/>
+        <Article imgUrl={blog02} text="AI assistant"/>
         </Link>
         <Link to={"/features/Dalle"}>
-        <Article imgUrl={blog02} text="Generate Image using dall-e"/>
+        <Article imgUrl={dalle} text="Generate Image using dall-e"/>
         </Link>
         </Fade>
         <Fade right>
       <Link to={"/features/QandA"}>
-      <Article imgUrl={blog03} text="Q&A"/>
+      <Article imgUrl={QnA} text="Q&A"/>
       </Link>
-      <Link to={"/features/grammercorrection"}>
-      <Article imgUrl={blog04} text="Grammer correction"/>
+      <Link to={"/features/bugfixer"}>
+      <Article imgUrl={blog04} text="Bugfixer"/>
       </Link>
       </Fade>
       <Fade left>
-      <Link to={"/features/Englishtoother"}>
-      <Article imgUrl={blog05} text="English to other languages"/>
+      <Link to={"/features/studynotes"}>
+      <Article imgUrl={blog05} text="Create study notes"/>
       </Link>
      <Link to={"/features/explaincode"}>
-     <Article imgUrl={blog03} text="Explain code"/>
+     <Article imgUrl={code} text="Explain code"/>
      </Link>
      </Fade>
      <Fade right>
-     <Link to={"/features/Translateprogramming"}>
-     <Article imgUrl={blog02} text="Translate programming languages"/>
+     <Link to={"/features/generatecode"}>
+     <Article imgUrl={ai} text="Generate Code using ai"/>
      </Link>
-      <Link to={"/features/friendchat"}>
-      <Article imgUrl={blog03} text="Friend chat"/>
+      <Link to={"/features/Translateprgramminglanguages"}>
+      <Article imgUrl={blog03} text="Translate programming languages"/>
       </Link>
      </Fade>
       </div>

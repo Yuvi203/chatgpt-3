@@ -94,6 +94,22 @@ display:flex;
 align-items:center;
 justify-content:center;
 }
+.text-con{
+    margin: 2rem 0 1rem;
+    display: flex;
+    flex-direction: row;
+    textarea{
+      font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    background: var(--color-footer);
+    border: 2px solid var(--color-footer);
+    padding: 0 1rem;
+    outline: none;
+    color: #fff;
+    }
+  }
 .lds-ripple {
   display: inline-block;
   position: relative;

@@ -54,9 +54,7 @@ const Container = styled.div`
         }
     }
       .avatar{  
-      /* display:flex;
-      align-items:center;
-      justify-content:space-between; */
+    cursor:pointer;
      width:30%;
      border-bottom:1px solid var(--color-bg);
     padding:1rem 0;
